@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Automatexte</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        header {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .controls {
+            margin-bottom: 12px;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 14px;
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            height: 75vh;
+            resize: vertical;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.55;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<header>Automatexte</header>
+
+<div class="controls">
+    <button onclick="generer()">Générer</button>
+</div>
+
+<textarea id="sortie" spellcheck="false"></textarea>
+
+<footer>
+    © Pierre‑Luc Verville, 2025
+</footer>
+
+<script src="amiral.js"></script>
+
+<script>
+function generer() {
+    if (typeof generate_prose_block !== "function") {
+        alert("Le moteur JavaScript n’est pas chargé.");
+        return;
+    }
+    document.getElementById("sortie").value = generate_prose_block();
+}
+</script>
+
+</body>
+</html>
